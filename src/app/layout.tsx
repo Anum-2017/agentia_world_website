@@ -39,11 +39,12 @@
 //   );
 // }
 
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/nav";
-import Footer from "@/components/footer"; 
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -56,8 +57,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agentia World", 
-  description: "AI Agent Marketplace",
+  title: "Agentia World",  
+  description: "AI Agents Marketplace for Innovation",
+  icons: {
+    icon: "/robotImage.webp", 
+  },
 };
 
 export default function RootLayout({
@@ -67,12 +71,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Add Favicon */}
-        <link rel="icon" type="image/png" href="/robotImage.webp" />
-      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div style={{ position: 'relative', zIndex: 1 }}>
+        <div style={{ position: "relative", zIndex: 1 }}>
           <Navbar />
           {children}
           <Footer />
@@ -81,4 +81,3 @@ export default function RootLayout({
     </html>
   );
 }
-
