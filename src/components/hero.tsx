@@ -71,8 +71,8 @@ export default function HeroSection() {
 
             <div className="absolute left-4 sm:left-[5px] flex items-center justify-center p-4 text-cyan-400 text-[60px] sm:text-[80px] w-16 sm:w-20 h-16 sm:h-20">
            <Image
-            src="/robotImage.webp"
-            alt="Futuristic Robot"
+            src="/Robot.png"
+            alt="Robot"
             width={60}
             height={60}
             className="drop-shadow-xl max-w-[300px] sm:max-w-[400px] md:max-w-[450px]"

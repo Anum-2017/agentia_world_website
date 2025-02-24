@@ -38,9 +38,10 @@ export default function Navbar() {
           transition={{ duration: 0.6 }}
         >
           <motion.div  transition={{ duration: 0.3 }}>
+         
            <Image
-            src="/robotImage.webp"
-            alt="Futuristic Robot"
+            src="/Robot.png"
+            alt="Robot"
             width={40}
             height={40}
             className="drop-shadow-xl max-w-[300px] sm:max-w-[400px] md:max-w-[450px]"
@@ -66,15 +67,6 @@ export default function Navbar() {
             </motion.a>
           ))}
         </div>
-
-        {/* CTA Button */}
-        <motion.a 
-          href="#discover"
-          className="hidden md:flex items-center gap-2 px-6 py-2 bg-cyan-400 text-white rounded-lg shadow-md hover:shadow-xl transition-all"
-          whileHover={{ scale: 1.1 }}
-        >
-          Discover More
-        </motion.a>
 
         {/* Mobile Menu Button */}
         <button 
@@ -107,13 +99,6 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-             <a 
-              href="#discover"
-              className="flex items-center gap-2 px-6 py-2 bg-cyan-400  text-white rounded-lg shadow-md"
-              onClick={() => setIsOpen(false)}
-            >
-              Discover More
-            </a> 
           </motion.div>
         )}
       </AnimatePresence>

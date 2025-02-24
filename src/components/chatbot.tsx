@@ -1,9 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Send, X, Rocket, } from "lucide-react";
+import { Send, X, Rocket } from "lucide-react";
 import { LuBrain } from "react-icons/lu";
-import { FaRobot } from "react-icons/fa6";
+import { RiRobot3Fill } from "react-icons/ri";
 
 export default function Chatbot() {
   const [messages, setMessages] = useState([
@@ -11,6 +11,16 @@ export default function Chatbot() {
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+
+  // Ref for auto-scrolling
+  const chatEndRef = useRef<HTMLDivElement>(null);
+
+  // Scroll to the latest message when messages update
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   const generateBotReply = (message: string) => {
     const lowerMsg = message.toLowerCase();
@@ -58,10 +68,10 @@ export default function Chatbot() {
     <div className="fixed bottom-8 right-8 z-50">
       {/* Rotating Chatbot Button */}
       <motion.button
-        className="bg-gradient-to-r  from-cyan-400 to-pink-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition relative"
+        className="bg-gradient-to-r from-cyan-400 to-pink-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition relative"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {isOpen ? <X size={24} /> : <FaRobot size={24} />}
+        {isOpen ? <X size={24} /> : <RiRobot3Fill  size={24} />}
       </motion.button>
 
       {/* Chatbox */}
@@ -72,6 +82,7 @@ export default function Chatbot() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3 }}
         >
+          {/* Messages Container with Auto-Scroll */}
           <div className="h-64 overflow-y-auto space-y-2 p-2">
             {messages.map((msg, index) => (
               <motion.div
@@ -89,6 +100,7 @@ export default function Chatbot() {
                 {msg.text}
               </motion.div>
             ))}
+            <div ref={chatEndRef}></div> {/* Auto-scroll trigger */}
           </div>
 
           {/* Input Field */}
@@ -101,7 +113,7 @@ export default function Chatbot() {
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && handleSend()}
             />
-            <button className=" bg-gradient-to-r from-cyan-400 to-pink-500 p-2 rounded-lg hover:bg-cyan-600" onClick={handleSend}>
+            <button className="bg-gradient-to-r from-cyan-400 to-pink-500 p-2 rounded-lg hover:bg-cyan-600" onClick={handleSend}>
               <Send size={20} className="text-white" />
             </button>
           </div>

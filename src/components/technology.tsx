@@ -4,8 +4,10 @@ import { useEffect, useState } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
 import { motion } from "framer-motion"
-import { FaPython, FaRobot } from "react-icons/fa"
-import { LuBrain, LuLock } from "react-icons/lu"
+import { FaPython} from "react-icons/fa"
+import { LuBrain} from "react-icons/lu"
+import { RiRobot3Fill } from "react-icons/ri"
+import { SiFastapi } from "react-icons/si";
 
 interface Technology {
   name: string
@@ -18,7 +20,7 @@ const technologies: Technology[] = [
   {
     name: "Artificial Intelligence",
     description: "Advanced AI models transforming industries",
-    icon: FaRobot,
+    icon: RiRobot3Fill,
     color: "#00eaff",
   },
   {
@@ -28,9 +30,9 @@ const technologies: Technology[] = [
     color: "#ff5733",
   },
   {
-    name: "Blockchain",
-    description: "Secure, transparent, and decentralized solutions",
-    icon: LuLock,
+    name: "FastAPI",
+    description: "High-performance backend with asynchronous capabilities.",
+    icon: SiFastapi ,
     color: "#00eaff",
   },
   {

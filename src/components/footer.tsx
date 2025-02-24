@@ -13,8 +13,8 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start space-y-4">
           <div className="flex items-center gap-3">
             <Image
-              src="/robotImage.webp"
-              alt="Agentia World Logo"
+              src="/Robot.png"
+              alt="Logo"
               width={50}
               height={50}
               className="object-contain"
